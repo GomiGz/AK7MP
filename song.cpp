@@ -1,6 +1,7 @@
 #include "song.h"
 
-Song::Song()
+Song::Song(QString name, int albumID)
 {
-
+    this->albumID= albumID;
+    this->name = name;
 }

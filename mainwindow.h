@@ -7,6 +7,7 @@
 #include "detail.h"
 #include "database.h"
 #include "addDialog.h"
+#include "search.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,6 +29,15 @@ private slots:
     void updateTable();
     void ShowContextMenu(const QPoint &pos);
     void deleteAlbum();
+    void SearchAlbums(QString value,QString column);
+
+    void on_actionOdstranit_filtr_triggered();
+
+    void on_actionRok_triggered();
+
+    void on_actionGenre_triggered();
+
+    void on_actionAutor_triggered();
 
 private:
     Ui::MainWindow *ui;

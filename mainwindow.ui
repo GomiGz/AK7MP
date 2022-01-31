@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CDDB</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTableWidget" name="tableWidget">
@@ -77,12 +77,43 @@
     </property>
     <addaction name="actionPridat"/>
    </widget>
+   <widget class="QMenu" name="menuFiltry">
+    <property name="title">
+     <string>Vyhledávání</string>
+    </property>
+    <addaction name="actionOdstranit_filtr"/>
+    <addaction name="separator"/>
+    <addaction name="actionGenre"/>
+    <addaction name="actionAutor"/>
+    <addaction name="actionRok"/>
+   </widget>
    <addaction name="menuAlba"/>
+   <addaction name="menuFiltry"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionPridat">
    <property name="text">
     <string>Přidat</string>
+   </property>
+  </action>
+  <action name="actionGenre">
+   <property name="text">
+    <string>Žánr</string>
+   </property>
+  </action>
+  <action name="actionAutor">
+   <property name="text">
+    <string>Autor</string>
+   </property>
+  </action>
+  <action name="actionRok">
+   <property name="text">
+    <string>Rok</string>
+   </property>
+  </action>
+  <action name="actionOdstranit_filtr">
+   <property name="text">
+    <string>Odstranit filtr</string>
    </property>
   </action>
  </widget>

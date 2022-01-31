@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>512</width>
     <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Album</string>
   </property>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QListWidget" name="ListSongs">
    <property name="geometry">
     <rect>
      <x>11</x>
@@ -39,8 +39,8 @@
   <widget class="QLabel" name="AuthorLabel">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>70</y>
+     <x>370</x>
+     <y>30</y>
      <width>55</width>
      <height>16</height>
     </rect>
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>110</y>
+     <y>90</y>
      <width>55</width>
      <height>16</height>
     </rect>
@@ -65,8 +65,8 @@
   <widget class="QLabel" name="GenreLabel">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>110</y>
+     <x>370</x>
+     <y>90</y>
      <width>55</width>
      <height>16</height>
     </rect>
@@ -75,14 +75,56 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QGraphicsView" name="graphicsView">
+  <widget class="QPushButton" name="AddPictureButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>151</width>
-     <height>121</height>
+     <x>40</x>
+     <y>70</y>
+     <width>93</width>
+     <height>28</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>Přidat obrázek</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="AddSongButton">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>170</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Přidat píseň</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RemoveSongButton">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>220</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Odebrat píseň</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ImageLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>141</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ImageLabel</string>
    </property>
   </widget>
  </widget>

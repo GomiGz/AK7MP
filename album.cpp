@@ -5,10 +5,6 @@ Album::Album()
 {
 }
 
-Album::Album(QSqlQueryModel model){
-
-}
-
 QVector<Album> Album::MockData()
 {
    QVector<Album> list;

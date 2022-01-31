@@ -20,6 +20,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     QSqlQueryModel* data = new QSqlQueryModel();
     db.GetAllAlbums(data);
     fillTable(data);
+    db.Close();
 }
 
 MainWindow::~MainWindow()
@@ -28,7 +29,8 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::cellDoubleClicked(){
-    Detail *wdg = new Detail(this,ui->tableWidget->selectedItems().first()->row());
+    Detail *wdg = new Detail(this,ui->tableWidget->item(ui->tableWidget->selectedItems().first()->row(),4)->text().toInt());
+    //wdg->setWindowModality(Qt::ApplicationModal);
     wdg->show();
 }
 
@@ -52,10 +54,11 @@ void MainWindow::fillTable(QSqlQueryModel *data){
 }
 
 void MainWindow::updateTable(){
-    Database db = Database();
+    Database db;
     QSqlQueryModel* data = new QSqlQueryModel();
     db.GetAllAlbums(data);
     fillTable(data);
+    db.Close();
 }
 
 void MainWindow::ShowContextMenu(const QPoint &pos)
@@ -73,7 +76,49 @@ void MainWindow::deleteAlbum()
     Database db;
     db.DeleteAlbum(ui->tableWidget->item(ui->tableWidget->selectedItems().first()->row(),4)->text().toInt());
     updateTable();
+    db.Close();
+}
+
+void MainWindow::SearchAlbums(QString value,QString column)
+{
+    Database db;
+    //qDebug() << column << " " << value;
+    QSqlQueryModel* data = new QSqlQueryModel();
+    db.GetAlbums(data,column,value);
+    fillTable(data);
+    db.Close();
+}
+
+void MainWindow::on_actionOdstranit_filtr_triggered()
+{
+    Database db = Database();
+    QSqlQueryModel* data = new QSqlQueryModel();
+    db.GetAllAlbums(data);
+    fillTable(data);
+    db.Close();
 }
 
 
+void MainWindow::on_actionRok_triggered()
+{
+    Search* dia = new Search(this,"year");
+    connect(dia,SIGNAL(ValueEntered(QString,QString)),this,SLOT(SearchAlbums(QString,QString)));
+    dia->show();
+}
+
+
+void MainWindow::on_actionGenre_triggered()
+{
+    Search* dia = new Search(this,"genre");
+    connect(dia,SIGNAL(ValueEntered(QString,QString)),this,SLOT(SearchAlbums(QString,QString)));
+    dia->show();
+}
+
+
+void MainWindow::on_actionAutor_triggered()
+{
+    Search* dia = new Search(this,"author");
+    connect(dia,SIGNAL(ValueEntered(QString,QString)),this,SLOT(SearchAlbums(QString,QString)));
+    dia->show();
+}
 

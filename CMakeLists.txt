@@ -32,11 +32,19 @@ set(PROJECT_SOURCES
         mainwindow.h
         database.h
         database.cpp
-        cddb.db
         addDialog.h
         addDialog.cpp
         addDialog.ui
+        AddSongDialog.ui
+        AddSongDialog.h
+        AddSongDialog.cpp
+        search.ui
+        search.h
+        search.cpp
 )
+
+configure_file(cddb.db cddb.db COPYONLY)
+file(COPY images DESTINATION .)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(CDDB

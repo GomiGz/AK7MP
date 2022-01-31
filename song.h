@@ -6,7 +6,9 @@
 class Song
 {
 public:
-    Song();
+    Song(QString name,int albumID);
+    QString name;
+    int albumID;
 };
 
 #endif // SONG_H

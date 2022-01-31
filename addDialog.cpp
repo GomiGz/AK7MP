@@ -21,10 +21,11 @@ void AddDialog::on_AddDialog_accepted()
     newAlbum.Name = ui->inputAlbum->text();
     newAlbum.Year = ui->inputYear->text();
     newAlbum.Genre = ui->inputGenre->text();
-    qDebug()<< newAlbum.Author << newAlbum.Name << newAlbum.Year << newAlbum.Genre;
+    //qDebug()<< newAlbum.Author << newAlbum.Name << newAlbum.Year << newAlbum.Genre;
     Database db;
     db.AddAlbum(newAlbum);
     emit AlbumAdded();
+    db.Close();
     done(0);
 }
 

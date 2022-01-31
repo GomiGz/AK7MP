@@ -10,12 +10,18 @@ class Database
 {
 public:
     Database();
+    void Close();
     void GetAllAlbums(QSqlQueryModel* model);
     void AddAlbum(Album album);
     Album GetAlbum(int ID);
     void DeleteAlbum(int ID);
+    void AddSong(Song song);
+    void GetSongsFromAlbum(QSqlQueryModel* model, int albumID);
+    void DeleteSong(int ID);
+    void GetAlbums(QSqlQueryModel* model,QString row, QString value);
 
-    const QString DBPath = "C:/Users/admin/Documents/CDDB/cddb.db";
+
+    const QString DBPath = QDir::currentPath() + "/cddb.db";
     QSqlDatabase db;
 
 private:
